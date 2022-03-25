@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+            box-sizing: border-box;
+        }
+        #main{
+            text-align:center;
+            padding-top: 50px;
+        }
+        input[type='text']{
+            width:30%;
+            padding:10px;
+            border: 2px solid black;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        input[type = submit]{
+            width:30%;
+            padding: 10px;
+            border: 2px solid rgb(92, 65, 128);
+            background: rgba(214, 25, 25, 0.911);
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-align: center
+        }
+        h1{
+            font-size: 60px;
+            color: white;
+        }
+        h2{
+            font-size: 50px ;
+        }
+        h3{
+            font-size:35px;
+            color: rgb(230, 215, 13);
+        }
+        h4{
+            font-size:35px;
+            color: rgba(149, 196, 19, 0.89);
+        }
+    </style>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'img/style.css' %}">
+<body style="background-image: url('{% static 'img/3.jpg' %}'); position: fixed; top: 0; width: 100%; height: 100%; background-size: cover;">
+    <img src="{%static 'img/5.png' %}" class="img-thumbnail" alt="logo" width="150" height="150">
+<div id="main">
+   <h1>NBA Standing</h1>
+   <h2>Season</h2>
+   <h2>2021-22</h2>
+    <form method="GET">
+        <label for="team"></label>
+        <input type="text" name="team" placeholder="team..." /><br>
+        <input type="submit" value="Submit" placeholder="search" /> 
+    </form>
+    {% if nba_team %}
+        
+        <h3>{{ nba_team.name }}</h3>
+        <h3>{{ nba_team.rank }}</h3>
+      
+    {% endif %}
+</div>
+
+</body>
+</html>
